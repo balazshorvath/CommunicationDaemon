@@ -15,5 +15,6 @@
 #include "Logger.h"
 #include "Globals.h"
 #include "Prototypes.h"
+#include "Serial.h"
 
 #endif
