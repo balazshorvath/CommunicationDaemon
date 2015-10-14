@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1444816178 source:/home/oryk/Documents/CommunicationDaemon/Logger.cpp
+	<string>
+	<vector>
+	<mutex>
+	<condition_variable>
+	<fstream>
+	<ctime>
+	"Logger.h"
+
+1444816529 /home/oryk/Documents/CommunicationDaemon/Logger.h
+
