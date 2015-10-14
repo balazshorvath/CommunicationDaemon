@@ -21,3 +21,37 @@
 
 1444836972 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Logger.h
 
+1444836972 source:/home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileCommunication.cpp
+	"FileCommunication.h"
+
+1444841272 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileCommunication.h
+
+1444841254 source:/home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/main.cpp
+	"Includes.h"
+
+1444841718 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Includes.h
+	<string>
+	<vector>
+	<ctime>
+	<thread>
+	<mutex>
+	<condition_variable>
+	<unistd.h>
+	<termios.h>
+	<fstream>
+	<sys/ioctl.h>
+	<fcntl.h>
+	"Macros.h"
+	"Logger.h"
+	"Globals.h"
+	"Prototypes.h"
+	"Serial.h"
+
+1444836972 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Macros.h
+
+1444841057 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Globals.h
+
+1444841254 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Prototypes.h
+
+1444841554 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Serial.h
+

@@ -9,9 +9,6 @@ class Serial{
 			_device = device;
 			_vmin = vmin;
 			_vtime = vtime;
-			/*_device = (char*)malloc(strlen(device));
-			memcpy(_device, device,strlen(device));
-			*(_device + strlen(device)) = '\0';*/
 		}
 
 		~Serial(){

@@ -6,5 +6,7 @@
 
 int validateInput(int, char**);
 void initializeProgram(int, char**);
+void outputThread();
+void inputThread();
 
 #endif

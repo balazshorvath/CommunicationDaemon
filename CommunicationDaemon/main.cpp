@@ -12,6 +12,12 @@ int main(int argc, char* argv[]){
 
     initializeProgram(argc, argv);
 
+    std::thread fromSerial(inputThread);
+    std::thread toSerial(outputThread);
+
+    fromSerial.join();
+    toSerial.join();
+
     return 0;
 }
 
@@ -31,4 +37,12 @@ int validateInput(int argc, char** argv){
     return 0;
 }
 
+
+void inputThread(){
+
+}
+
+void outputThread(){
+
+}
 
