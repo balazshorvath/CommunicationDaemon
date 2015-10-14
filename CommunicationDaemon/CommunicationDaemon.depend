@@ -10,3 +10,14 @@
 
 1444816529 /home/oryk/Documents/CommunicationDaemon/Logger.h
 
+1444836972 source:/home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Logger.cpp
+	<string>
+	<vector>
+	<mutex>
+	<condition_variable>
+	<fstream>
+	<ctime>
+	"Logger.h"
+
+1444836972 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Logger.h
+
