@@ -1,4 +1,4 @@
-# CommunicationDeamon
+# CommunicationDaemon
 
 ## How to build
 ```
