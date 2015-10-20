@@ -25,5 +25,6 @@
 #include "Globals.h"
 #include "Prototypes.h"
 #include "Serial.h"
+#include "FileIn.h"
 
 #endif
