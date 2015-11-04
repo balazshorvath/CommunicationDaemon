@@ -17,6 +17,7 @@
 #include <fstream>
 #include <sys/ioctl.h>
 #include <fcntl.h>
+#include <memory>
 
 /* Project headers */
 /* Carefully with the include order */

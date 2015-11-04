@@ -55,3 +55,10 @@
 
 1444841554 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Serial.h
 
+1446660561 source:/home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileIn.cpp
+	<string>
+	<fstream>
+	"FileIn.h"
+
+1446658919 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileIn.h
+

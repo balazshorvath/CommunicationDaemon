@@ -8,13 +8,16 @@ class FileIn {
     private:
         bool _working;
         std::string _currentFile;
+        std::ifstream _fileStream;
     public:
-        std::string GetFile();
-
+        /*
+        * return: 0, if it exists. other, if there was an error.
+        */
         int Start(std::string file);
+        /* -1 if the file isn't open, 0 else */
+        int ReadBytes(char* data, int nBytes);
 
-        int ReadBytes(char* data);
-
+        /* Returns the file removal's result*/
         int Finish();
 };
 
