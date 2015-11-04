@@ -26,11 +26,12 @@
 
 1444841272 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileCommunication.h
 
-1444841254 source:/home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/main.cpp
+1446661414 source:/home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/main.cpp
 	"Includes.h"
 
-1444841718 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Includes.h
+1446662997 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Includes.h
 	<string>
+	<cstring>
 	<vector>
 	<ctime>
 	<thread>
@@ -41,24 +42,26 @@
 	<fstream>
 	<sys/ioctl.h>
 	<fcntl.h>
+	<memory>
 	"Macros.h"
 	"Logger.h"
 	"Globals.h"
 	"Prototypes.h"
 	"Serial.h"
+	"FileIn.h"
 
 1444836972 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Macros.h
 
 1444841057 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Globals.h
 
-1444841254 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Prototypes.h
+1446661373 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Prototypes.h
 
 1444841554 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/Serial.h
 
-1446660561 source:/home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileIn.cpp
+1446661549 source:/home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileIn.cpp
 	<string>
 	<fstream>
 	"FileIn.h"
 
-1446658919 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileIn.h
+1446661612 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileIn.h
 

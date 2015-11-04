@@ -35,6 +35,7 @@ int FileIn::ReadBytes(char* data, int nBytes){
 /* Returns the file removal's result*/
 int FileIn::Finish(){
     _working = false;
+    _fileStream.close();
     return remove(_currentFile.c_str());
 }
 

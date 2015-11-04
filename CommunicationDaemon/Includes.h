@@ -4,6 +4,7 @@
 /* External headers */
 //make your life easier
 #include <string>
+#include <cstring>
 #include <vector>
 //system
 #include <ctime>

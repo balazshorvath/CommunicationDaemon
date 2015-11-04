@@ -1,5 +1,5 @@
-#ifndef FILE_HANDLER_H
-#define FILE_HANDLER_H
+#ifndef FILE_IN_H
+#define FILE_IN_H
 
 class FileIn {
     public:
