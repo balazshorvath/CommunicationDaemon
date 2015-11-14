@@ -11,6 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="3,asd  asdf" />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
@@ -33,8 +34,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="CommHandler.h" />
 		<Unit filename="FileIn.cpp" />
 		<Unit filename="FileIn.h" />
+		<Unit filename="FileOut.cpp" />
+		<Unit filename="FileOut.h" />
 		<Unit filename="Globals.h" />
 		<Unit filename="Includes.h" />
 		<Unit filename="Logger.cpp" />

@@ -6,11 +6,14 @@
 #include <string>
 #include <cstring>
 #include <vector>
+#include <iostream>
+#include <sstream>
 //system
 #include <ctime>
 //multithreading
 #include <thread>
 #include <mutex>
+#include <chrono>
 #include <condition_variable>
 //IO
 #include <unistd.h>
@@ -28,5 +31,7 @@
 #include "Prototypes.h"
 #include "Serial.h"
 #include "FileIn.h"
+#include "FileOut.h"
+#include "CommHandler.h"
 
 #endif

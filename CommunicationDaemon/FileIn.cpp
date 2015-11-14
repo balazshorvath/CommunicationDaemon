@@ -17,7 +17,7 @@ int FileIn::Start(std::string file){
 
     _fileStream.open(_currentFile.c_str(), std::ifstream::in);
 
-    if(!_fileStream.good())
+    if(_fileStream.good()==0)
         return 1;
 
     _working = true;

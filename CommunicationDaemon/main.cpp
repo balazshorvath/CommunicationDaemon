@@ -1,16 +1,38 @@
 #include "Includes.h"
 
-
+std::vector<CommHandler*> cHandlers;
+std::vector<Serial> ports;
+int currentHandler = 0;
+int initData();
+std::vector<std::string> split(std::string str, char delimiter);
+void increment(int*);
 /*Parameters
 * 1. required   path to the folder to make and modify in/out files
 * 2. required   serial device to read and write
 * 3. optional   path to the log file, default: /var/log/commdae/commdae.log
 */
 int main(int argc, char* argv[]){
-    if(validateInput(argc, argv) != 0)
-        return 1;
+    /*if(validateInput(argc, argv) != 0) //we keep this for later use, but curretnly we would need about 15 params or more which i refuse to do
+        return 1;*/
 
-    initializeProgram(argc, argv);
+    //initializeProgram(argc, argv); // same as above
+
+    if(initData())
+    {
+        return 1;
+    }
+
+
+
+    //current init
+    communicationFolder="/media/ramdisk/";
+    //cHandlers.push_back(new CommHandler("asd", "/dev/ttyS1", ioFlags::readwrite_f));
+    //ports.push(Serial("/dev/ttyS0",0,0));
+    //cHandlers.push_back(new CommHandler("c", "/dev/ttyS1", ioFlags::read_f));
+    //ports.push(Serial("/dev/ttyS1",0,0));
+
+
+    running = 1;
 
     std::thread fromSerial(inputThread);
     std::thread toSerial(outputThread);
@@ -29,6 +51,7 @@ void initializeProgram(int argc, char** argv){
     if(argc > 3)
         logger.SetFileName(std::string(argv[3]));
 }
+
 int validateInput(int argc, char** argv){
     if(argc < 3){
         logger.Error("Wrong arguments.", "Validation");
@@ -37,57 +60,114 @@ int validateInput(int argc, char** argv){
     return 0;
 }
 
-
 void inputThread(){
+    int i = 0;
+    int timeout = 20;
+    CommHandler* ch;
+    while (running)
+    {
+        if(timeout != 20)
+        timeout = 20;
 
+        int result;
+        ch = cHandlers[i];
+
+        if (ch->isS2F())
+        {
+            result = ch->fromSerialToFile();
+            switch (result)
+            {
+                case 0: increment(&i); break; //everything is ok
+                case 1: timeout = 5; break; //other thread working, try again a bit later
+                case 2: increment(&i); break; //file still there
+                case -1: logger.Error("Unable to open serial port.","Serial I/O"); increment(&i); break;
+                case -2: logger.Error("Unable to open file.","File I/O"); increment(&i); break;
+            }
+
+        }
+
+        std::this_thread::sleep_for (std::chrono::milliseconds(timeout));
+    }
 }
 
 void outputThread(){
+    int i = 0;
+    int timeout = 20;
+    CommHandler* ch;
+    while (running)
+    {
+        if(timeout != 20)
+        timeout = 20;
 
-}
+        int result;
+        ch = cHandlers[i];
 
+        if (ch->isF2S())
+        {
+            result = ch->fromFileToSerial();
+            switch (result)
+            {
+                case 0: increment(&i); break; //everything is ok
+                case 1: timeout = 5; break; //other thread working, try again a bit later
+                case 2: increment(&i); break; //file not existing yet
+                case -1: logger.Error("Unable to open serial port.","Serial I/O"); increment(&i); break;
+                case -2: logger.Error("Unable to open file.","File I/O"); increment(&i); break;
+            }
 
-/*
-* out size can be calculated easily...
-* 2 * inSize + 1
-*/
-void toHex(char* in, char* outStr, int inSize){
-    for(int i = 0; i < inSize; i++){
-        //1 byte = 2 byte in hex -> offset is i * 2
-        sprintf((outStr + 2 * i), "%02X", in[i]);
-    }
-}
-/*
-* input is a string, dont need sizes
-* ret -1 if the hex string is invalid 0 everythings fine
-*/
-int fromHex(char* inStr, char* out){
-    int counter = 1;
-
-    while(*inStr){
-        switch(*inStr){
-            case '0': break;
-            case '1': *(out) |= (counter % 2) ? 0x10 : 0x01; break;
-            case '2': *(out) |= (counter % 2) ? 0x20 : 0x02; break;
-            case '3': *(out) |= (counter % 2) ? 0x30 : 0x03; break;
-            case '4': *(out) |= (counter % 2) ? 0x40 : 0x04; break;
-            case '5': *(out) |= (counter % 2) ? 0x50 : 0x05; break;
-            case '6': *(out) |= (counter % 2) ? 0x60 : 0x06; break;
-            case '7': *(out) |= (counter % 2) ? 0x70 : 0x07; break;
-            case '8': *(out) |= (counter % 2) ? 0x80 : 0x08; break;
-            case '9': *(out) |= (counter % 2) ? 0x90 : 0x09; break;
-            case 'A': *(out) |= (counter % 2) ? 0xA0 : 0x0A; break;
-            case 'B': *(out) |= (counter % 2) ? 0xB0 : 0x0B; break;
-            case 'C': *(out) |= (counter % 2) ? 0xC0 : 0x0C; break;
-            case 'D': *(out) |= (counter % 2) ? 0xD0 : 0x0D; break;
-            case 'E': *(out) |= (counter % 2) ? 0xE0 : 0x0E; break;
-            case 'F': *(out) |= (counter % 2) ? 0xF0 : 0x0F; break;
-            default: return -1;
         }
-        if(!(++counter % 2))
-            out++;
+        std::this_thread::sleep_for (std::chrono::milliseconds(timeout));
     }
+}
+
+int initData(){
+    std::ifstream ins;
+
+    ins.open("/media/config", std::ifstream::in);
+    if (ins.good() == 0)
+    {
+        return 1;
+    }
+
+    std::vector<std::string> values;
+    std::string data;
+    int flag;
+
+    while(ins.peek() != EOF)
+    {
+        std::getline(ins, data);
+        values = split(data,';');
+        std::istringstream(values[2]) >> flag;
+        cHandlers.push_back(new CommHandler(values[0],values[1],ioFlags(flag)));
+        portCount++;
+    }
+
+
     return 0;
+}
+
+std::vector<std::string> split(std::string str, char delimiter) {
+  std::vector<std::string> internal;
+  std::stringstream ss(str); // Turn the string into a stream.
+  std::string tok;
+
+  while(getline(ss, tok, delimiter)) {
+    internal.push_back(tok);
+  }
+
+  return internal;
+}
+
+void increment(int* i)
+{
+    if(*i < portCount - 1)
+    {
+        *i++;
+    }
+    else
+    {
+        *i=0;
+    }
+
 }
 
 

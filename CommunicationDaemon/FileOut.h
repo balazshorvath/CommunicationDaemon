@@ -14,6 +14,7 @@ class FileOut {
         * return: 0, if it exists. other, if there was an error.
         */
         int Start(std::string file);
+
         int PutBytes(char* str);
 
         /* Returns the file rename's result */

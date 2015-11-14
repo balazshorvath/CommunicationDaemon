@@ -65,3 +65,74 @@
 
 1446661612 /home/oryk/Documents/CommDeamon/CommunicationDaemon/CommunicationDaemon/FileIn.h
 
+1447459429 source:/home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/FileIn.cpp
+	<string>
+	<fstream>
+	"FileIn.h"
+
+1446663148 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/FileIn.h
+
+1444842776 source:/home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/Logger.cpp
+	<string>
+	<vector>
+	<mutex>
+	<condition_variable>
+	<fstream>
+	<ctime>
+	"Logger.h"
+
+1444842776 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/Logger.h
+
+1447460632 source:/home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/main.cpp
+	"Includes.h"
+
+1447454577 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/Includes.h
+	<string>
+	<cstring>
+	<vector>
+	<iostream>
+	<sstream>
+	<ctime>
+	<thread>
+	<mutex>
+	<chrono>
+	<condition_variable>
+	<unistd.h>
+	<termios.h>
+	<fstream>
+	<sys/ioctl.h>
+	<fcntl.h>
+	<memory>
+	"Macros.h"
+	"Logger.h"
+	"Globals.h"
+	"Prototypes.h"
+	"Serial.h"
+	"FileIn.h"
+	"FileOut.h"
+	"CommHandler.h"
+
+1444842776 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/Macros.h
+
+1447432384 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/Globals.h
+
+1446663148 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/Prototypes.h
+
+1446671581 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/Serial.h
+
+1447459497 source:/home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/FileOut.cpp
+	<fstream>
+	<string>
+	<cstring>
+	"FileOut.h"
+
+1447459509 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/FileOut.h
+
+1447460610 /home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/CommHandler.h
+	<string>
+
+1447375116 source:/home/phain/Documents/cpp/CommunicationDaemon/CommunicationDaemon/CommHandler.cpp
+	"CommHandler.h"
+	<string>
+	<iostream>
+

@@ -9,6 +9,7 @@ class Serial{
 			_device = device;
 			_vmin = vmin;
 			_vtime = vtime;
+			_isOpen = false;
 		}
 
 		~Serial(){
@@ -78,5 +79,5 @@ class Serial{
 		std::string _device;
 		int _descriptor;
 		int _vmin, _vtime;
-		bool _isOpen = false;
+		bool _isOpen;// = false;
 };

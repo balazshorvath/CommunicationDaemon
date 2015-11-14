@@ -4,20 +4,31 @@
 
 #include "FileOut.h"
 
+FileOut::FileOut() {
+}
+FileOut::~FileOut() {
+}
+
 /*
 * return: 0, if it exists. other, if there was an error.
 */
 int FileOut::Start(std::string file){
     _currentFile = file + "_tmp";
 
-    _fileStream.open(_currentFile.c_str(), std::fstream::out);
+    _fileStream.open(_currentFile.c_str(), std::fstream::in);
 
-    if(!_fileStream.good())
+    if(_fileStream.good())
+    {
+        _fileStream.close();
         return 1;
+    }
+    _fileStream.close();
+    _fileStream.open(_currentFile.c_str(), std::fstream::out);
 
     _working = true;
     return 0;
 }
+
 int FileOut::PutBytes(char* str){
     _fileStream.write(str, strlen(str));
     return 0;
